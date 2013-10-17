@@ -17,10 +17,10 @@ table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
 
 body {
     margin-top: 0px;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:14px;
-    font-weight:normal;
-    color:black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    color: black;
 }
 table {
     background-color: white;
@@ -31,7 +31,7 @@ td {
     padding: 0;
 }
 #tableOuter {
-    border:solid 1px #CCC;
+    border: solid 1px #CCC;
     border-collapse: collapse;
     margin: auto;
     width: auto;
@@ -66,12 +66,12 @@ a:hover {
     font-size: 12px;
     background-color: #d7d3c7;
     padding: 4px;
-    vertical-align:top
+    vertical-align: top
 }
 .secondaryDescription {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
-    vertical-align:top
+    vertical-align: top
 }
 .secondaryDescription table {
     border-collapse: separate;
@@ -99,7 +99,7 @@ a:hover {
     background-color: #e5e5e5;
     border-color: #e5e5e5;
     height: 1px;
-    border-style:solid
+    border-style: solid
 }
 h2 {
     font-family: Arial, Helvetica, sans-serif;
@@ -108,10 +108,9 @@ h2 {
     color: #5a5d62;
     padding-top: 14px;
     line-height: 0;
-
 }
 .theme-default #slider {
-    margin:0;
-    width:313px; /* Make sure your images are the same size */
+    margin: 0;
+    width: 313px; /* Make sure your images are the same size */
     height:177px; /* Make sure your images are the same size */
 }
