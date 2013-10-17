@@ -16,11 +16,12 @@ table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
 }
 
 body {
-    margin-top: 0px;
+    background-color: #efede9;
+    color: black;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     font-weight: normal;
-    color: black;
+    margin-top: 0px;
 }
 table {
     background-color: white;
@@ -33,7 +34,7 @@ td {
 #tableOuter {
     border: solid 1px #CCC;
     border-collapse: collapse;
-    margin: auto;
+    margin: 0.25em auto;
     width: auto;
 }
 #tableInner {
