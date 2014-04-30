@@ -80,11 +80,6 @@ a:hover {
 .secondaryDescription td {
     padding: 3px;
 }
-.disclosure {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 10px;
-    vertical-align: bottom;
-}
 .tileImage {
     border-top-style: solid;
     border-right-style: solid;
@@ -118,6 +113,14 @@ h2 {
 .wfstage {
     float: right;
     margin-top: 1em;
+}
+.disclosure {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    vertical-align: bottom;
+}
+td.disclosure p.disclosure {
+    font-size: 10px;
 }
 td.disclosure:first-child p.disclosure {
     margin-bottom: 0;
