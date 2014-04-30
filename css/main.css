@@ -119,3 +119,6 @@ h2 {
     float: right;
     margin-top: 1em;
 }
+td.disclosure:first-child p.disclosure {
+    margin-bottom: 0;
+}
