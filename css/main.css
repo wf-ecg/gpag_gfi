@@ -115,3 +115,7 @@ h2 {
     width: 313px; /* Make sure your images are the same size */
     height:177px; /* Make sure your images are the same size */
 }
+.wfstage {
+    float: right;
+    margin-top: 1em;
+}
