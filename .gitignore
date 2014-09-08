@@ -1,2 +1,13 @@
-/documents/
+*.mp4
+*.ogv
+*.pdf
+*.psd
+*.webm
+*.zip
+documents/
 images/gallery*
+
+npm-debug.log
+node_modules
+*/build/*
+
