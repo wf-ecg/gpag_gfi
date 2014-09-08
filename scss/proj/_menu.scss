@@ -13,7 +13,7 @@ ul#menu {
     border-bottom: 1px solid #555555;
     border-top: 1px solid #919191;
     background-color: transparent;
-    background-image: url(images/OFF.gif);
+    background-image: url("../images/OFF.gif");
     background-repeat: repeat-x;
     background-position: left top;
 }
@@ -31,11 +31,11 @@ ul#menu li a {
     font-weight: bold;
     padding: 12px 20px 0 20px;
     height: 24px;
-    background: transparent url("images/DIVIDER.gif") no-repeat top right;
+    background: transparent url("../images/DIVIDER.gif") no-repeat top right;
 }
 ul#menu li a:hover {
-    background: transparent url("images/HOVER.gif") no-repeat top right;
+    background: transparent url("../images/HOVER.gif") no-repeat top right;
 }
 ul#menu .current {
-    background: transparent url("images/HOVER.gif") no-repeat top right;
+    background: transparent url("../images/HOVER.gif") no-repeat top right;
 }
