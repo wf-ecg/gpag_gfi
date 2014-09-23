@@ -1,8 +1,8 @@
 {
-    "name": "harbor",
+    "name": "gpag_gfi",
     "repository": {
         "type": "git",
-        "url": "https://github.com/dvdrtrgn/harbor.git"
+        "url": "https://github.com/dvdrtrgn/gpag_gfi.git"
     },
     "version": "0.1.0",
     "devDependencies": {
