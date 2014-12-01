@@ -5,9 +5,8 @@
 *.webm
 *.zip
 documents/
-images/gallery*
+media*/*/*
 
 npm-debug.log
 node_modules
 */build/*
-

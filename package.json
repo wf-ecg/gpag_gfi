@@ -20,7 +20,7 @@
         "load-grunt-tasks": "~0.2.0"
     },
     "bases": ["app", ".", "../.."],
-    "group": "wf-ecg/gpag_gfi/0",
+    "group": "docs/wf-ecg/gpag_gfi/0",
     "port0": 7001,
     "port1": 8001,
     "zzzzz": 0
