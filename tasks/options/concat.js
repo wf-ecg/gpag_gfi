@@ -4,30 +4,39 @@ module.exports = {
     // https://github.com/gruntjs/grunt-contrib-concat
 
     options: {
+        banner: ';\n'
+        + '/* = = = = = = = '
+        + '<%= pkg.name %> '
+        + '<%= grunt.task.current.name %> '
+        + '= = = = = = = = */\n',
+        separator: ';\n'
+        + '/* = = = = = = = '
+        + '<%= grunt.task.current.target %> '
+        + '<%= grunt.template.today("isoDateTime") %> '
+        + '= = = = = = = = */\n',
         sourceMap: true,
     },
-    bootstrap: {
+    boot: {
         options: {
-            sourceMap: false,
+            sourceMap: false, // see uglify for map
         },
-        dest: 'app/build/boot.js',
-        src: [
-            'libs/bootstrap/jquery.js',
-            'libs/bootstrap/modernizr.js',
-            'libs/bootstrap/lodash.underscore.js',
-            'libs/bootstrap/console.js',
-            'libs/bootstrap/global.js',
-        ],
-    },
-    lib: {
         files: {
-            'app/build/lib.js': ['libs/*.js'],
-        }
+            'app/build/boot.js': ['libs/boot/*.js'],
+        },
     },
-    src: {
+    libs: {
+        options: {
+            sourceMap: false, // see uglify for map
+        },
         files: {
-            'app/build/src.js': ['scripts/[a-z]*.js', 'scripts/_main.js'],
-        }
+            'app/build/libs.js': ['libs/**/*.js','!libs/boot/**'],
+        },
+    },
+    main: {
+        options: { sourceMap: true, },
+        files: {
+            'app/build/main.js': ['scripts/[a-z]*.js', 'scripts/_[a-z]*.js'],
+        },
     },
 };
 

@@ -4,35 +4,26 @@ module.exports = {
     // https://github.com/gruntjs/grunt-contrib-watch
 
     options: {
-        livereload: false,
+        debounceDelay: 333,
     },
-    lib: {
-        files: ['libs/*.js'],
-        tasks: ['jshint', 'concat:lib'],
-    },
-    src: {
-        files: ['scripts/*.js'],
-        tasks: ['jshint', 'concat:src'],
+    cat: {
+        files: ['libs/*.js', 'scripts/*.js'],
+        tasks: ['jshint:precat', 'concat:main'],
     },
     css: {
         files: ['scss/**/*.scss'],
-        tasks: ['sass:base'],
-    },
-    html: {
-        files: ['app/**/*.html'],
-    },
-    config: {
-        options: {
-            reload: true,
-        },
-        files: ['Gruntfile.js', 'tasks/*.js', 'tasks/options/*.js'],
-        tasks: ['default'],
+        tasks: ['sass:full'],
     },
     reloads: {
         options: {
-            livereload: 7001,
+            livereload: '<%= pkg.port0 %>',
         },
-        files: ['app/**/*'],
-        tasks: ['sync'],
+        files: ['app/**/*', '!app/**/*.map'],
+        tasks: ['jshint:postcat', 'sync:update'],
+    },
+    warn: {
+        options: { reload: !false, },
+        files: ['Gruntfile.js', 'tasks/**/*'],
+        tasks: ['default'],
     },
 };

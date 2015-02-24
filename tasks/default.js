@@ -1,33 +1,75 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
     grunt.registerTask('default', [
-        'connect', 'sass',
-        'jshint:precat', 'concat', 'jshint:postcat',
-        'uglify', 'sync', 'watch',
+        'jshint:precat',
+        'concat',
+        'jshint:postcat',
+        'uglify',
+        'sass:full',
+        'sync:clean',
+        'connect:full',
+        'watch',
     ]);
 
     grunt.registerTask('easy', [
-        'connect', 'sass:base', 'watch',
+        'connect:base',
+        'watch',
     ]);
 
-    grunt.registerTask('custom', 'Say hello!', function() {
-        grunt.log.writeln("Custom task log");
+    grunt.registerMultiTask('wrap', 'Wraps source files with specified header and footer', function () {
+        var data = this.data,
+            path = require('path'),
+            dest = grunt.template.process(data.dest),
+            files = grunt.file.expandFiles(this.file.src),
+            header = grunt.file.read(grunt.template.process(data.header)),
+            footer = grunt.file.read(grunt.template.process(data.footer)),
+            sep = grunt.utils.linefeed;
+
+        files.forEach(function (f) {
+            var p = dest + '/' + path.basename(f),
+                contents = grunt.file.read(f);
+
+            grunt.file.write(p, header + sep + contents + sep + footer);
+            grunt.log.writeln('File "' + p + '" created.');
+        });
     });
 
-    grunt.registerTask('dev', ['connect', 'watch']);
+    grunt.foo = (function () {
+        var out = {};
+        grunt.file.expand({
+            cwd: 'libs',
+            filter: 'isDirectory'
+        }, '*').map(function (nom) {
+            out['app/build/' + nom + '.js'] = ['libs/' + nom + '/*.js'];
+        });
+        console.log('GRUNT.FOO', out);
+        return out;
+    }());
 
-    grunt.event.on('watch', function(action, filepath, target) {
-        grunt.log.writeln('\n\n\n\nWATCH >><< TARGET:', target, filepath);
+    // grunt.registerTask('custom', 'Say hello!', function () {
+    //     grunt.log.writeln("Custom task log");
+    // });
+    //
+    // grunt.registerTask('dev', ['connect', 'watch']);
 
-//        var cfgkey = ['copy', 'files'];
-//        grunt.config.set(cfgkey, [grunt.config.get(cfgkey)].map(function(file) {
-//            file.src = filepath;
-//            return file;
-//        }));
+        /*
+    grunt.event.on('watch', function (action, filepath, target) {
+        grunt.log.writeln('\n>>WATCH<< TARGET:', target, filepath);
+       var cfgkey = ['copy', 'files'];
+       grunt.config.set(cfgkey, [grunt.config.get(cfgkey)].map(function(file) {
+           file.src = filepath;
+           return file;
+       }));
     });
-
+        */
 };
+
 /*
+    * matches any number of characters, but not /
+    ? matches a single character, but not /
+    ** matches any number of characters, including /, as long as it's the only thing in a path part
+    {} allows for a comma-separated list of "or" expressions
+    ! at the beginning of a pattern will negate the match
 
 // You can specify single files:
 // Or arrays of files:
@@ -58,5 +100,28 @@ module.exports = function(grunt) {
 
     files: { 'dest/<%= basename %>.min.js': ['src/<%= basename %>.js'] }
     files: { 'dest/file': ['foo/*.js', '<%= jshint.all.src %>'] }
+
+    grunt.initConfig({
+        uglify: {
+            static_mappings: {
+                files: [
+                    {src: 'lib/a.js', dest: 'build/a.min.js'},
+                    {src: 'lib/b.js', dest: 'build/b.min.js'},
+                    {src: 'lib/subdir/c.js', dest: 'build/subdir/c.min.js'},
+                    {src: 'lib/subdir/d.js', dest: 'build/subdir/d.min.js'},
+                ],
+            },
+            dynamic_mappings: {
+                files: [{
+                    expand: true,     // Enable dynamic expansion.
+                    cwd: 'lib/',      // Src matches are relative to this path.
+                    src: ['**⁄*.js'], // Actual pattern(s) to match.
+                    dest: 'build/',   // Destination path prefix.
+                    ext: '.min.js',   // Dest filepaths will have this extension.
+                    extDot: 'first'   // Extensions in filenames begin after the first dot
+                }],
+            },
+        },
+    });
 
  */

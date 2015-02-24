@@ -10,14 +10,20 @@ module.exports = {
         },
         mangle: false,
     },
-    target: {
+    boot: {
         options: {
-        //sourceMap: true,
+            sourceMap: false,
         },
         files: {
             'app/build/boot.min.js': ['app/build/boot.js'],
-        //    'app/build/lib.min.js': ['app/build/lib.js'],
-        //    'app/build/src.min.js': ['app/build/src.js'],
+        }
+    },
+    libs: {
+        options: {
+            sourceMap: false,
+        },
+        files: {
+            'app/build/libs.min.js': ['app/build/libs.js'],
         }
     },
 };
