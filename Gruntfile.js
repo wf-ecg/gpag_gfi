@@ -42,10 +42,6 @@ module.exports = function (grunt) {
                 },
                 sourceMap: true,
             },
-            dist: {
-                //src: ['src/**/*.js'],
-                //dest: 'dist/<%= pkg.name %>.js'
-            },
             boot: {
                 options: {
                     sourceMap: false, // see uglify for map
@@ -78,11 +74,6 @@ module.exports = function (grunt) {
                     unused: false,
                 },
                 mangle: false,
-            },
-            dist: {
-                files: {
-                    //'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
-                }
             },
             boot: {
                 options: {
