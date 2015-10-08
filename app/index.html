@@ -9,8 +9,10 @@
         <title>GPAG &gt; Home</title>
         <link rel="stylesheet" href="css/main.css" type="text/css">
         <link rel="stylesheet" href="css/menu_style.css" type="text/css">
-        <link rel="stylesheet" href="nivoSlider/themes/default/default.css" type="text/css">
-        <link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="vendor/nivoSlider/themes/default/default.css" type="text/css">
+        <link rel="stylesheet" href="vendor/nivoSlider/nivo-slider.css" type="text/css" media="screen">
+        <script type="text/javascript" src="/lib/jquery/1.8.2/jquery.js"></script>
+        <script type="text/javascript" src="vendor/nivoSlider/jquery.nivo.slider.js"></script>
     </head>
     <body>
         <table id="tableOuter">
@@ -49,21 +51,23 @@
                                     </tr>
                                     <tr>
                                         <td width="600">
-                                            On behalf of Global Payment Services, my colleagues, and all of the presenters, we extend our deepest thanks for your attendance at our annual meeting. There is no doubt that GPAG has evolved into one of the most important groups in global payments, and we cannot imagine not having the support of all of you as we face the challenges in this constantly evolving environment. It is a given that the global payments arena will only continue to present change and complexity, but having the leading payments experts in the world to share the burden, is indeed a wonderful comfort to all of us.<br>
-                                            <br>
-                                            Electronic copies of the presentations given during the conference are now available in the <a href="library.html" target="_self">Document Library</a> until July 31, 2015:<br>
-                                            <br>
-                                            In addition to our annual conference, we will be staying in touch via an upcoming webinar, our LinkedIn group, and you can expect to receive our next issue of the GPAG Dialogue newsletter.  All of these channels are enhanced by the information we exchanged in San Francisco, again illustrating that everything GPAG does is as a community.<br>
-                                            <br>
-                                            You should have received an invitation to join the GPAG LinkedIn group.  If not, you can <a href="https://www.linkedin.com/groups?home=&gid=6732593" target="_self">request to join the group</a>.<br>
-                                            <br>
-                                            We are looking to firm up the 2016 conference for the period of June 12–16, 2016.  Please let us know if this conflicts with any holidays or other commitments you may have.  A formal Save the Date will be sent shortly.<br>
-                                            <br>
-                                            Thank you again for your most important partnership.  It is indeed an honor to be part of such a prestigious group.<br>
-                                            <br>
-                                            Cheers,<br>
-                                            <br>
-                                            <em>Ashish</em><br><br>
+                                            <p>
+                                                On behalf of Global Payment Services, my colleagues, and all of the presenters, we extend our deepest thanks for your attendance at our annual meeting. There is no doubt that GPAG has evolved into one of the most important groups in global payments, and we cannot imagine not having the support of all of you as we face the challenges in this constantly evolving environment. It is a given that the global payments arena will only continue to present change and complexity, but having the leading payments experts in the world to share the burden, is indeed a wonderful comfort to all of us.<br>
+                                                <br>
+                                                Electronic copies of the presentations given during the conference are now available in the <a href="library.html" target="_self">Document Library</a> until July 31, 2015:<br>
+                                                <br>
+                                                In addition to our annual conference, we will be staying in touch via an upcoming webinar, our LinkedIn group, and you can expect to receive our next issue of the GPAG Dialogue newsletter.  All of these channels are enhanced by the information we exchanged in San Francisco, again illustrating that everything GPAG does is as a community.<br>
+                                                <br>
+                                                You should have received an invitation to join the GPAG LinkedIn group.  If not, you can <a href="https://www.linkedin.com/groups?home=&gid=6732593" target="_self">request to join the group</a>.<br>
+                                                <br>
+                                                We are looking to firm up the 2016 conference for the period of June 12–16, 2016.  Please let us know if this conflicts with any holidays or other commitments you may have.  A formal Save the Date will be sent shortly.<br>
+                                                <br>
+                                                Thank you again for your most important partnership.  It is indeed an honor to be part of such a prestigious group.<br>
+                                                <br>
+                                                Cheers,<br>
+                                                <br>
+                                                <em>Ashish</em><br><br>
+                                            </p>
                                         </td>
                                         <td width="30">&nbsp;</td>
                                         <td width="207" align="left" valign="top"><a href="resources.html"><img src="images/gpagDialogue.png" border="0" width="207" height="197" alt="GPAG Dialogue"><br>
@@ -105,16 +109,14 @@
                                                                             </a>
                                                                         </div>
                                                                     </div>
-                                                                    <script type="text/javascript" src="js/jquery-1.7.1.min.js"> </script>
-                                                                    <script type="text/javascript" src="js/jquery.nivo.slider.pack.js"> </script>
                                                                     <script type="text/javascript">
-                                                                    $(window).load(function() {
-                                                                        $('#slider').nivoSlider({
-                                                                            effect: 'fade', // Specify sets like: 'fold,fade,sliceDown'
-                                                                            animSpeed: 500, // Slide transition speed
-                                                                            pauseTime: 5000 // How long each slide will show
-                                                                        });
-                                                                    });
+            $(window).load(function () {
+                $('#slider').nivoSlider({
+                    effect: 'fade', // Specify sets like: 'fold,fade,sliceDown'
+                    animSpeed: 500, // Slide transition speed
+                    pauseTime: 5000 // How long each slide will show
+                });
+            });
                                                                     </script></td>
                                                                 <td rowspan="3">&nbsp;</td>
                                                                 <td width="313" bgcolor="#d7d3c7"><a href="resources.html">

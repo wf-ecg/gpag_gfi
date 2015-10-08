@@ -68,5 +68,5 @@
 .jush-php_sqlite .jush-php_apo a, .jush-php_sqlite .jush-php_quo a,
 .jush-php_pgsql .jush-php_apo a, .jush-php_pgsql .jush-php_quo a {
     color: inherit;
-    color: expression(parentNode.currentStyle.color);
+    //color: expression(parentNode.currentStyle.color);
 }
