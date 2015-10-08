@@ -1,0 +1,2 @@
+#app/images/gallery*/medium/*       filter=fat -crlf
+app/images/gallery*/original/*     filter=fat -crlf
