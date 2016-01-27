@@ -4,8 +4,8 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         jshint: {
             files: ['Gruntfile.js',
-                'src/**/*.js', 'test/**/*.js', 'app/scripts/*.js',
-                '!app/build/**/*.js', '!app/vendor/**/*.js'],
+                'src/**/*.js', 'test/**/*.js', 'app/**/*.js',
+                '!app/lib/**/*.js', '!app/build/**/*.js', '!app/vendor/**/*.js'],
             options: {
                 // options here to override JSHint defaults
                 globals: {
@@ -21,80 +21,11 @@ module.exports = function (grunt) {
                 '-W002': true, // allow err as var
                 //'-W033': true, // ???
                 //'-W061': true, // ???
+                '-W069': true, // surpress dot notation is better error
             }
             // https://github.com/gruntjs/grunt-contrib-jshint
         },
-        //qunit: {
-        //files: ['test/**/*.html']
-        //},
-        concat: {
-            options: {
-                //separator: ';',
-                separator: '/* = = = = = = = = = = */\n',
-                banner: '/* = = = = = = =' +
-                        ' <%= pkg.name %>:' +
-                        ':<%= grunt.task.current.target %>:' +
-                        ':<%= grunt.task.current.name %>:' +
-                        ':<%= grunt.template.today("isoDateTime") %> ' +
-                        '= = = = = = = */\n',
-                process: function (src, filepath) {
-                    return ('//\n// ' + filepath + '\n//\n' + src + '\n');
-                },
-                sourceMap: true,
-            },
-            boot: {
-                options: {
-                    sourceMap: false, // see uglify for map
-                },
-                files: {
-                    'app/build/boot.js': ['libs/_boot/*.js'],
-                },
-            },
-            libs: {
-                options: {
-                    sourceMap: false, // see uglify for map
-                },
-                files: {
-                    'app/build/libs.js': ['libs/**/*.js', '!libs/_boot/**'],
-                },
-            },
-            main: {
-                options: {sourceMap: true, },
-                files: {
-                    'app/build/main.js': ['scripts/[a-z]*.js', 'scripts/_[a-z]*.js'],
-                },
-            },
-            // https://github.com/gruntjs/grunt-contrib-concat
-        },
-        uglify: {
-            options: {
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
-                // beautify: true,
-                compress: {
-                    unused: false,
-                },
-                mangle: false,
-            },
-            boot: {
-                options: {
-                    sourceMap: false,
-                },
-                files: {
-                    'app/build/boot.min.js': ['app/build/boot.js'],
-                }
-            },
-            libs: {
-                options: {
-                    sourceMap: false,
-                },
-                files: {
-                    'app/build/libs.min.js': ['app/build/libs.js'],
-                }
-            },
-            // https://github.com/gruntjs/grunt-contrib-uglify
-        },
         sass: {
-            // SASS
             // sourcemap: {String}(Default: auto)
             //  auto - relative paths where possible, file URIs elsewhere
             //  file - always absolute file URIs
@@ -119,7 +50,6 @@ module.exports = function (grunt) {
             // https://github.com/gruntjs/grunt-contrib-sass
         },
         sync: {
-            // CONNECT
             clean: {
                 files: [{
                         cwd: 'app',
@@ -127,8 +57,10 @@ module.exports = function (grunt) {
                         dest: '/web/<%= pkg.group %>/',
                     }],
                 //pretend: true,
-                updateOnly: false,
+                updateOnly: false, // true = Don't remove any files from `dest` (works around 30% faster)
+                updateAndDelete: true,
                 verbose: true,
+                compareUsing: 'md5', // 'mtime'
             },
             update: {
                 files: [{
@@ -137,12 +69,10 @@ module.exports = function (grunt) {
                         dest: '/web/<%= pkg.group %>/',
                     }],
                 //pretend: true,
-                updateOnly: true, // Don't remove any files from `dest` (works around 30% faster)
             },
             // https://github.com/tomusdrw/grunt-sync
         },
         connect: {
-            // CONNECT
             options: {
                 port: '<%= pkg.port1 %>',
             },
@@ -162,20 +92,8 @@ module.exports = function (grunt) {
             // https://github.com/gruntjs/grunt-contrib-connect
         },
         watch: {
-            files: ['<%= jshint.files %>'],
-            tasks: ['jshint'], // , 'qunit'
-            // WATCH
-
             options: {
                 debounceDelay: 333,
-            },
-            cap: {
-                files: ['libs/**/*.js'],
-                tasks: ['jshint', 'concat:libs', 'concat:boot', 'uglify'],
-            },
-            cat: {
-                files: ['scripts/*.js'],
-                tasks: ['jshint', 'concat:main'],
             },
             css: {
                 files: ['scss/**/*.scss'],
@@ -185,8 +103,15 @@ module.exports = function (grunt) {
                 options: {
                     livereload: '<%= pkg.port0 %>',
                 },
-                files: ['app/**/*', '!app/**/*.map'],
-                tasks: ['jshint', 'sync:update'],
+                files: ['app/**/*', '!app/**/*.map'], // '<%= jshint.files %>',
+                tasks: ['jshint', 'sync:update'], // 'qunit'
+            },
+            wait: {
+                options: {
+                    livereload: '<%= pkg.port0 %>',
+                },
+                files: [],
+                tasks: [],
             },
             // https://github.com/gruntjs/grunt-contrib-watch
         },
@@ -198,10 +123,12 @@ module.exports = function (grunt) {
                     out: 'app/build/app.js',
                     findNestedDependencies: true,
                     fileExclusionRegExp: /^\./,
-                    //baseUrl: "path/to/base",
+                    //baseUrl: 'path/to/base',
                     //logLevel: 0,  // http://jaketrent.com/post/run-requirejs-with-gruntjs/
                     //inlineText: true,
-                    //optimize: "none",
+                    //generateSourceMaps: true,
+                    //optimize: 'none',
+                    //preserveLicenseComments: false,
                     uglify: {
                         beautify: false,
                         max_line_length: 255,
@@ -228,7 +155,45 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-requirejs');
 
     grunt.registerTask('test', ['jshint', 'qunit']);
-    grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'sass:full', /*'requirejs',*/ 'sync:clean']);
-    grunt.registerTask('watcher', ['connect:full', 'watch']);
 
+    grunt.registerTask('default', ['jshint', 'sass:full', 'sync:clean', 'connect:full', 'watch']);
+    grunt.registerTask('package', ['jshint', 'sass:full', 'requirejs', 'sync:clean']);
 };
+
+//        qunit: {
+//            files: ['test/**/*.html']
+//        },
+//        concat: {
+//            options: {
+//                //separator: ';',
+//                separator: '/* = = = = = = = = = = */\n',
+//                banner: '/* = = = = = = =' +
+//                        ' <%= pkg.name %>:' +
+//                        ':<%= grunt.task.current.target %>:' +
+//                        ':<%= grunt.task.current.name %>:' +
+//                        ':<%= grunt.template.today("isoDateTime") %> ' +
+//                        '= = = = = = = */\n',
+//                process: function (src, filepath) {
+//                    return ('//\n// ' + filepath + '\n//\n' + src + '\n');
+//                },
+//                sourceMap: true,
+//            },
+//            main: {
+//                options: {sourceMap: true, },
+//                files: {
+//                    'app/build/main.js': ['scripts/[a-z]*.js', 'scripts/_[a-z]*.js'],
+//                },
+//            },
+//            // https://github.com/gruntjs/grunt-contrib-concat
+//        },
+//        uglify: {
+//            options: {
+//                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
+//                // beautify: true,
+//                compress: {
+//                    unused: false,
+//                },
+//                mangle: false,
+//            },
+//            // https://github.com/gruntjs/grunt-contrib-uglify
+//        },
