@@ -1,6 +1,5 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-/* PROJ / Base */
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* PROJ/_base.scss */
 
 /* RESET */
 a, abbr, acronym, address, applet, article, aside, audio,
@@ -18,7 +17,6 @@ table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
     -o-box-sizing: border-box;
     box-sizing: border-box;
 }
-
 body {
     background-color: #efede9;
     color: black;
@@ -27,80 +25,19 @@ body {
     font-weight: normal;
     margin-top: 0px;
 }
-table {
-    background-color: white;
-    border-collapse: collapse;
-    width: 100%;
-}
-td {
-    padding: 0;
-}
-#tableOuter {
-    border: solid 1px #CCC;
-    border-collapse: collapse;
-    margin: 0.25em auto;
-    width: auto;
-}
-#tableInner {
-    margin: 15px;
-    width: 964px;
-}
-#topNav {
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-#topNav * {
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    -o-box-sizing: content-box;
-    box-sizing: content-box;
-}
-p {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 13px;
-    color: black;
-}
 a {
     color: #336699;
+    &:hover {
+        color: #0000FF;
+    }
 }
-a:hover {
-    color: #0000FF;
-}
-.tileDescription {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    background-color: #d7d3c7;
-    padding: 4px;
-    vertical-align: top
-}
-.secondaryDescription {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    vertical-align: top
-}
-.secondaryDescription table {
-    border-collapse: separate;
-}
-.secondaryDescription td {
-    padding: 3px;
-}
-.tileImage {
-    border-top-style: solid;
-    border-right-style: solid;
-    border-bottom-style: solid;
-    border-left-style: solid;
-    border-top-color: #d7d3c7;
-    border-right-color: #d7d3c7;
-    border-bottom-color: #d7d3c7;
-    border-left-color: #d7d3c7;
-    border-width: 1px;
-}
-.footerRule {
-    background-color: #e5e5e5;
-    border-color: #e5e5e5;
-    height: 1px;
-    border-style: solid
-}
+h1 {
+    color:#78a22f;
+    font-family: Georgia, serif;
+    font-size:21px;
+    font-weight:normal;
+    margin-bottom:2px;}
+
 h2 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
@@ -109,25 +46,24 @@ h2 {
     padding-top: 14px;
     line-height: 0;
 }
-.theme-default #slider {
-    margin: 0;
-    width: 313px; /* Make sure your images are the same size */
-    height:177px; /* Make sure your images are the same size */
-}
-.wfstage {
-    float: right;
-    margin-top: 1em;
-}
-.disclosure {
+p {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 11px;
-    vertical-align: bottom;
+    font-size: 13px;
+    color: black;
 }
-td.disclosure p.disclosure {
-    font-size: 10px;
+table {
+    background-color: white;
+    border-collapse: collapse;
+    width: 100%;
 }
-td.disclosure:first-child p.disclosure {
-    margin-bottom: 0;
+td {
+    padding: 0;
+    &.disclosure p.disclosure {
+        font-size: 10px;
+    }
+    &.disclosure:first-child p.disclosure {
+        margin-bottom: 0;
+    }
 }
 
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //

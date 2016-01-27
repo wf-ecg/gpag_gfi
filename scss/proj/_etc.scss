@@ -1,0 +1,102 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* PROJ/_etc.scss*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+.agenda {
+    border-collapse: collapse; margin-bottom:16px;
+    & h4 {
+        margin-bottom:0;
+    }
+    & .date {
+        padding-right:40px;
+        white-space:nowrap;
+    }
+    & td, & th {
+        text-align: left;
+        vertical-align:top;
+        padding-top:5px;
+        padding-bottom:10px;
+        border-bottom:1px solid #e0e3e2;
+    }
+    & th {
+        padding-top:15px;
+        padding-bottom:5px;
+        border-bottom:1px thin #e0e3e2;
+    }
+    & h4 {
+        margin-bottom:0;
+    }
+}
+.disclosure {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    vertical-align: bottom;
+}
+.footerRule {
+    background-color: #e5e5e5;
+    border-color: #e5e5e5;
+    height: 1px;
+    border-style: solid
+}
+.noWrap {
+    white-space: nowrap;
+}
+.secondaryDescription {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    vertical-align: top;
+    & table {
+        border-collapse: separate;
+    }
+    & td {
+        padding: 3px;
+    }
+}
+.theme-default #slider {
+    margin: 0;
+    width: 313px; /* Make sure your images are the same size */
+    height:177px; /* Make sure your images are the same size */
+}
+.tileDescription {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    background-color: #d7d3c7;
+    padding: 4px;
+    vertical-align: top
+}
+.tileImage {
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: #d7d3c7;
+    border-right-color: #d7d3c7;
+    border-bottom-color: #d7d3c7;
+    border-left-color: #d7d3c7;
+    border-width: 1px;
+}
+.wfstage {
+    float: right;
+    margin-top: 1em;
+}
+
+#tableInner {
+    margin: 15px;
+    width: 964px;
+}
+#tableOuter {
+    border: solid 1px #CCC;
+    border-collapse: collapse;
+    margin: 0.25em auto;
+    width: auto;
+}
+#topNav {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    & * {
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        -o-box-sizing: content-box;
+        box-sizing: content-box;
+    }
+}
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //

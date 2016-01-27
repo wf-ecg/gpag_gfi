@@ -15,12 +15,11 @@ ol {
 html {
     &.mobile {.desktop {display: none;}}
     &.desktop {.mobile {display: none;}}
-
-    body { /* test */
-/*        border: 1em solid lime;*/
-    }
 }
 .ui-loader-default {
     opacity: 0.1;
+}
+div.loader {
+    background-image: url("../images/icons/loader.gif") !important;
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
