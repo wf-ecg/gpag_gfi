@@ -24,7 +24,7 @@ html {
     opacity: 0.1;
 }
 div.loader {
-    background-image: url("../images/icons/loader.gif");
+    background-image: url("../images/icons/loader.gif") !important;
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .agenda {border-collapse: collapse; margin-bottom:16px;}
