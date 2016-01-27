@@ -15,10 +15,6 @@ ol {
 html {
     &.mobile {.desktop {display: none;}}
     &.desktop {.mobile {display: none;}}
-
-    body { /* test */
-        /*        border: 1em solid lime;*/
-    }
 }
 .ui-loader-default {
     opacity: 0.1;
@@ -27,27 +23,3 @@ div.loader {
     background-image: url("../images/icons/loader.gif") !important;
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-.agenda {border-collapse: collapse; margin-bottom:16px;}
-.agenda h4 {margin-bottom:0;}
-.agenda .date {
-    padding-right:40px;
-    white-space:nowrap;
-}
-.agenda td, .agenda th {
-    text-align: left;
-    vertical-align:top;
-    padding-top:5px;
-    padding-bottom:10px;
-    border-bottom:1px solid #e0e3e2;
-}
-.agenda th {
-    padding-top:15px;
-    padding-bottom:5px;
-    border-bottom:1px thin #e0e3e2;
-}
-.agenda h4 {margin-bottom:0;}
-
-.noWrap {white-space: nowrap;}
-
-h1 { font-family: Georgia, serif; font-size:21px; font-weight:normal; color:#78a22f; margin-bottom:2px;}
-

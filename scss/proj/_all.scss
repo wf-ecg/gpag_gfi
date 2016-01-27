@@ -1,14 +1,7 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* PROJ */
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-
-x.debug *:hover {
-    outline-color: rgba(255,0,0,0.5);
-    outline-offset: -1px;
-    outline-style: solid;
-    outline-width: 1px;
-}
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 @import "_base";
+@import "_etc";
 @import "_menu";
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
